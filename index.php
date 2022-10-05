@@ -1,5 +1,6 @@
 
 <?php include ("classes/Messages-class.php"); ?>
+<?php include("classes/FileManager-class.php"); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,6 +18,18 @@
 
     $bootsrapMessage = new BootstrapMessage("Nauja", "p");
      $bootsrapMessage->show("primary");
+
+     $fileManager = new FileManager("klientai.json");
+        $fileManager->readFile();
+        $fileManager->showData();
+
+     $jsonManager = new JsonManager("klientai.json");
+        $jsonManager->readFile();
+        $jsonManager->showData();
+        
+        $csvManager = new CsvManager("username.csv");
+        $csvManager->readFile();
+        var_dump($csvManager->data);
     ?>    
 
 </body>
