@@ -1,6 +1,7 @@
 
 <?php include ("classes/Messages-class.php"); ?>
 <?php include("classes/FileManager-class.php"); ?>
+<?php include("classes/HierarchPaveld-class.php"); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,24 +14,33 @@
 </head>
 <body>
     <?php 
-    $message = new Message("Nauja", "p");
-    $message->show("primary");
+    // $message = new Message("Nauja", "p");
+    // $message->show("primary");
 
-    $bootsrapMessage = new BootstrapMessage("Nauja", "p");
-     $bootsrapMessage->show("primary");
+    // $bootsrapMessage = new BootstrapMessage("Nauja", "p");
+    //  $bootsrapMessage->show("primary");
 
-     $fileManager = new FileManager("klientai.json");
-        $fileManager->readFile();
-        $fileManager->showData();
+    //  $fileManager = new FileManager("klientai.json");
+    //     $fileManager->readFile();
+    //     $fileManager->showData();
 
-     $jsonManager = new JsonManager("klientai.json");
-        $jsonManager->readFile();
-        $jsonManager->showData();
+    //  $jsonManager = new JsonManager("klientai.json");
+    //     $jsonManager->readFile();
+    //     $jsonManager->showData();
         
-        $csvManager = new CsvManager("username.csv");
-        $csvManager->readFile();
-        var_dump($csvManager->data);
-    ?>    
+    //     $csvManager = new CsvManager("username.csv");
+    //     $csvManager->readFile();
+    //     var_dump($csvManager->data);
+    $gyvunas= new Gyvunas("raudona","1t","4");
+    $gyvunas->apibudinkSave();
+
+    $kate = new Kate("juoda", "12","4","labai purus kailis");
+    $kate->apibudinkSave();
+    $kate->koksKailis();
+
+
+
+?>    
 
 </body>
 </html>
